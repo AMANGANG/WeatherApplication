@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
     private TextView dateTextView;
     private TextView cityNameTextView;
 
-    private SearchView searchView;
+
     private View frame;
 
     private LottieAnimationView lottieAnimationView;
@@ -54,37 +54,21 @@ public class HomeFragment extends Fragment {
         dateTextView = view.findViewById(R.id.date);
         cityNameTextView = view.findViewById(R.id.textView);
 
-        searchView = view.findViewById(R.id.searchView);
+
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
         frame=view.findViewById(R.id.frame);
 
 
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                currentCityName = query;
-                fetchWeatherData(currentCityName);
-
-                ForecastFragment forecastFragment = new ForecastFragment();
-
-                Bundle args = new Bundle();
-
-                args.putString("cityName", currentCityName);
-                forecastFragment.setArguments(args);
-
-
-
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+        Bundle args = getArguments();
+        if (args != null && args.containsKey("cityName")) {
+            currentCityName = args.getString("cityName");
+        }
 
         fetchWeatherData(currentCityName);
+
+
+
 
         return view;
     }
@@ -144,7 +128,7 @@ public class HomeFragment extends Fragment {
                 break;
             case "few clouds":
             case "partly clouds":
-            case "overcast":
+            case "overcast clouds":
             case "Mist":
             case "broken clouds":
             case "Foggy":
