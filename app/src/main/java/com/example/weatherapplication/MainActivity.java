@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LottieAnimationView lottieAnimationView;
 
-    private String currentCityName = "jaipur"; // Default city name
+    private String currentCityName = "jaipur";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,12 +55,20 @@ public class MainActivity extends AppCompatActivity {
         searchView = findViewById(R.id.searchView);
         lottieAnimationView=findViewById(R.id.lottieAnimationView);
 
-        goToForecastButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+        goToForecastButton.setOnClickListener(new  View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("cityName", currentCityName);
-                startActivity(intent);
+
+                Forecast forecastFragment = new Forecast();
+
+
+                Bundle args = new Bundle();
+                args.putString("cityName", currentCityName);
+                forecastFragment.setArguments(args);
+
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, forecastFragment)
+                        .commit();
             }
         });
 
@@ -101,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
                         double minTemp = weatherApp.getMain().getTemp_min();
                         String condition = weatherApp.getWeather().get(0).getMain();
 
-                        temperatureTextView.setText(String.format(Locale.getDefault(), "%.2f °C", temperature));
-                        maxTempTextView.setText(String.format(Locale.getDefault(), "Max Temp: %.2f °C", maxTemp));
-                        minTempTextView.setText(String.format(Locale.getDefault(), "Min Temp: %.2f °C", minTemp));
+                        temperatureTextView.setText(temperature + " °C");
+                        maxTempTextView.setText("Max Temp: " + maxTemp + " °C");
+                        minTempTextView.setText("Min Temp: " + minTemp + " °C");
                         weatherDescriptionTextView.setText(condition);
                         dayTextView.setText(dayName(System.currentTimeMillis()));
                         dateTextView.setText(date());

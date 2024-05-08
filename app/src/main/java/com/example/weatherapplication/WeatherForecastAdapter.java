@@ -47,7 +47,8 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
                 break;
             case "Clouds":
             case "PartlyClouds":
-            case "Overcast":
+            case "overcast clouds":
+            case"broken clouds":
             case "Mist":
             case "Foggy":
             case "few clouds":
@@ -56,7 +57,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
                 break;
             case "light rain":
             case "Drizzle":
-            case "Moderate Rain":
+            case "moderate rain":
             case "Showers":
             case "Heavy Rain":
             case "Rain":
@@ -73,6 +74,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
                 break;
         }
         lottieAnimationView.playAnimation();
+
     }
 
 
@@ -96,7 +98,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
             textViewTemperature = itemView.findViewById(R.id.textViewTemperature);
             textViewWeatherDescription = itemView.findViewById(R.id.textViewWeatherDescription);
 
-            lottieAnimationView.loop(true);
+
 
 
 
