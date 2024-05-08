@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/home"
+    android:icon="@drawable/baseline_add_home_24"
+    android:title="Home screen"/>
+
+    <item
+        android:id="@+id/forecast"
+        android:icon="@drawable/baseline_air_24"
+        android:title="Forecast screen"/>
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/baseline_cases_24"
+        android:title="Search screen"/>
+
+
+</menu>
