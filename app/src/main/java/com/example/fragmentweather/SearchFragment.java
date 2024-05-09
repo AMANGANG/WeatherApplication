@@ -29,8 +29,8 @@ private Button button;
 
         String[] cities = {"london", "delhi", "sydney", "bareilly", "lucknow"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, cities);
-        searchView.setAdapter(adapter);
+        ArrayAdapter<String> city = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, cities);
+        searchView.setAdapter(city);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +46,9 @@ private Button button;
                 forecastFragment.setArguments(args);
 
 
+
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, homeFragment)
+                        .add(R.id.container, homeFragment)
                         .commit();
 
 

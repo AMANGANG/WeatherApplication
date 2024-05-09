@@ -53,8 +53,6 @@ public class HomeFragment extends Fragment {
         dayTextView = view.findViewById(R.id.day);
         dateTextView = view.findViewById(R.id.date);
         cityNameTextView = view.findViewById(R.id.textView);
-
-
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
         frame=view.findViewById(R.id.frame);
 
@@ -161,12 +159,12 @@ public class HomeFragment extends Fragment {
     }
 
     private String date() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
-        return sdf.format(new Date());
+        SimpleDateFormat date = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+        return date.format(new Date());
     }
 
     private String dayName(long timestamp) {
-        SimpleDateFormat sdf = new SimpleDateFormat("EEEE", Locale.getDefault());
-        return sdf.format(new Date(timestamp));
+        SimpleDateFormat day = new SimpleDateFormat("EEEE", Locale.getDefault());
+        return day.format(new Date(timestamp));
     }
 }
