@@ -3,6 +3,7 @@ package com.example.fragmentweather;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,9 @@ public class ForecastFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private WeatherForecastAdapter adapter;
-    private String cityName;
+    private String cityName="jaipur";
+
+    private WeatherViewModel weatherViewModel;
 
 
     @Override
@@ -36,14 +39,20 @@ public class ForecastFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycleview1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Bundle args = getArguments();
-        if (args != null && args.containsKey("cityName")) {
-            cityName = args.getString("cityName");
-        }else{
-            cityName="Jaipur";
-        }
+        weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
+        weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
+            if(query!=null){
+                cityName=query;
+            }
+        });
 
+        loadWeatherData(cityName);
+
+        return view;
+    }
+
+    private void loadWeatherData(String cityName) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -56,7 +65,6 @@ public class ForecastFragment extends Fragment {
             @Override
             public void onResponse(Call<WeatherForecastResponse> call, Response<WeatherForecastResponse> response) {
                 if (response.isSuccessful()) {
-
                     adapter = new WeatherForecastAdapter(response.body().getList());
                     recyclerView.setAdapter(adapter);
                 } else {
@@ -69,7 +77,5 @@ public class ForecastFragment extends Fragment {
                 Toast.makeText(getActivity(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-        return view;
     }
 }

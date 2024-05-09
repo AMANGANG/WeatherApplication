@@ -6,9 +6,6 @@ import android.view.MenuItem;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,22 +21,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView;
-        bottomNavigationView=findViewById(R.id.btnnav);
+        bottomNavigationView = findViewById(R.id.btnnav);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                int id=menuItem.getItemId();
+                int id = menuItem.getItemId();
 
-                if(id==R.id.home){
-                    loadfrag(new HomeFragment(),true);
+                if (id == R.id.home) {
+                    loadfrag(new HomeFragment(), true);
 
 
-                } else if(id==R.id.forecast){
-                    loadfrag(new ForecastFragment(),false);
-                }else{
-                      loadfrag(new SearchFragment(),false);
+                } else if (id == R.id.forecast) {
+                    loadfrag(new ForecastFragment(), false);
+                } else {
+                    loadfrag(new SearchFragment(), false);
                 }
                 return true;
             }
@@ -47,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
     }
 
-    public void loadfrag(Fragment fragment,Boolean flag){
-        FragmentManager fm=getSupportFragmentManager();
-        FragmentTransaction ft=fm.beginTransaction();
-        if(flag) {
+    public void loadfrag(Fragment fragment, Boolean flag) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if (flag) {
             ft.add(R.id.container, fragment);
-        }else {
-            ft.replace(R.id.container,fragment);
+        } else {
+            ft.replace(R.id.container, fragment);
         }
 
         ft.commit();

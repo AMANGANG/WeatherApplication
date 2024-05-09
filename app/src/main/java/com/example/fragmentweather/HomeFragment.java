@@ -1,8 +1,10 @@
+
 package com.example.fragmentweather;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +40,8 @@ public class HomeFragment extends Fragment {
 
     private LottieAnimationView lottieAnimationView;
 
+    private WeatherViewModel weatherViewModel;
+
     private String currentCityName = "jaipur";
 
     @Override
@@ -55,13 +59,14 @@ public class HomeFragment extends Fragment {
         cityNameTextView = view.findViewById(R.id.textView);
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
         frame=view.findViewById(R.id.frame);
+        weatherViewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
-
-
-        Bundle args = getArguments();
-        if (args != null && args.containsKey("cityName")) {
-            currentCityName = args.getString("cityName");
+    weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
+        if(query!=null){
+            currentCityName=query;
         }
+    });
+
 
         fetchWeatherData(currentCityName);
 
