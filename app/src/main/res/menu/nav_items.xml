@@ -4,7 +4,8 @@
     android:id="@+id/home"
     android:icon="@drawable/baseline_add_home_24"
     android:title="Home screen"/>
-
+<!--TODO no hardcoded title-->
+<!--    TODO code is not indented properly-->
     <item
         android:id="@+id/forecast"
         android:icon="@drawable/baseline_air_24"

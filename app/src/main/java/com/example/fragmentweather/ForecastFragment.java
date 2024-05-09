@@ -19,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
+////TODO please indent your code
 public class ForecastFragment extends Fragment {
 
 
@@ -37,6 +37,7 @@ public class ForecastFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
 
         recyclerView = view.findViewById(R.id.recycleview1);
+        ////TODO please explain what is LinearLayoutManger
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
@@ -55,20 +56,25 @@ public class ForecastFragment extends Fragment {
         return view;
     }
 
+   ////TODO this code should be part of repository, repository should be only accessible to viewmodel and not the view, this can lead to ANR
     private void loadWeatherData(String cityName) {
+        ////TODO URL is global should be part of Constants file
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         WeatherApiservice service = retrofit.create(WeatherApiservice.class);
+        ////TODO what is the need of 2 different APIKeys different keys in HomeFragment and ForecastFragment
         Call<WeatherForecastResponse> call = service.getWeatherForecast(cityName, 8, "90b2bfcec116c18607aadc9b350e7b2d");
 
         call.enqueue(new Callback<WeatherForecastResponse>() {
             @Override
             public void onResponse(Call<WeatherForecastResponse> call, Response<WeatherForecastResponse> response) {
                 if (response.isSuccessful()) {
+                    //// TODO wrong place to create the adapter, could have just added the list to the adapter
                     adapter = new WeatherForecastAdapter(response.body().getList());
+                   //// TODO wrong place to set the adapter
                     recyclerView.setAdapter(adapter);
                 } else {
                     Toast.makeText(getActivity(), "Error: " + response.message(), Toast.LENGTH_LONG).show();

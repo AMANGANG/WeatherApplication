@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<!--    TODO what do you understand by base application theme-->
+<!--    TODO what do you undetstand by Base.Theme-->
+<!--    TODO what do you understand by Base.Theme.Fragmentweather-->
+<!--    TODO Why have you used Material3-->
+
     <style name="Base.Theme.Fragmentweather" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
+<!--        TODO what is the advantage of commenting this code. P.S. Good work-->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 </resources>

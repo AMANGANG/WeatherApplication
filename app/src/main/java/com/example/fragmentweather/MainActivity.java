@@ -17,12 +17,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ////TODO please explain this
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView;
         bottomNavigationView = findViewById(R.id.btnnav);
 
+        ////TODO please don't use deprecated code
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -45,14 +47,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadfrag(Fragment fragment, Boolean flag) {
+        ////TODO please explain what is getSupportFragmentManager()
         FragmentManager fm = getSupportFragmentManager();
+        ////TODO please explain what is beginTransaction()
         FragmentTransaction ft = fm.beginTransaction();
+        ////TODO please explain diff b/w add and replace
         if (flag) {
             ft.add(R.id.container, fragment);
         } else {
             ft.replace(R.id.container, fragment);
         }
-
+        ////TODO please explain this
         ft.commit();
     }
 

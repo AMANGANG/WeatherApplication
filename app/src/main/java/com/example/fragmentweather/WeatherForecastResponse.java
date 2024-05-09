@@ -19,6 +19,7 @@ public class WeatherForecastResponse {
         return list;
     }
 
+//    TODO What is the reason of creating this class static?
     public static class City {
         @SerializedName("name")
         private String name;
@@ -28,6 +29,7 @@ public class WeatherForecastResponse {
         }
     }
 
+    //    TODO What is the reason of creating this class static?
     public static class Forecast {
         @SerializedName("dt_txt")
         private String dateTime;
@@ -51,6 +53,7 @@ public class WeatherForecastResponse {
         }
     }
 
+    //    TODO What is the reason of creating this class static?
     public static class Main {
         @SerializedName("temp")
         private float temp;
@@ -60,7 +63,9 @@ public class WeatherForecastResponse {
         }
     }
 
+    //    TODO What is the reason of creating this class static?
     public static class Weather {
+        ////TODO what do you understand by @SerializedName
         @SerializedName("main")
         private String main;
 

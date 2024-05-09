@@ -6,10 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ForecastFragment">
 
+    <!--TODO WHY is your cardview inside a FrameLayout?-->
+    <!--TODO Always give ids to all your views-->
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <!--TODO WHY is your RecyclerView inside CardView?-->
+        <!--TODO Proper naming of the recyclerview-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -17,7 +21,7 @@
             android:id="@+id/recycleview1"
 
             />
-
+<!--TODO remove blank space-->
 
 
 

@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
 
-
+////TODO no need for this, you could have just passed the query string
     weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
         if(query!=null){
             currentCityName=query;
@@ -77,7 +77,9 @@ public class HomeFragment extends Fragment {
       return view;
     }
 
+    ////TODO this is part of repository. This should be encapsulated from the view
     private void fetchWeatherData(String cityName) {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -98,10 +100,14 @@ public class HomeFragment extends Fragment {
                         String condition = weatherApp.getWeather().get(0).getDescription();
 
                         temperatureTextView.setText(temperature + " °C");
+                        //// TODO use strings.xml
                         maxTempTextView.setText("Max Temp: " + maxTemp + " °C");
+                        //// TODO use strings.xml
                         minTempTextView.setText("Min Temp: " + minTemp + " °C");
                         weatherDescriptionTextView.setText(condition);
+                        //// TODO instead of dayName function should be to get today's day
                         dayTextView.setText(dayName(System.currentTimeMillis()));
+                        //// TODO bad function naming
                         dateTextView.setText(date());
                         cityNameTextView.setText(cityName);
                         changeImagesAccordibdtocondition(condition);
@@ -169,6 +175,7 @@ public class HomeFragment extends Fragment {
         return date.format(new Date());
     }
 
+   //// TODO please explain date format EEEE, what is Locale.getDefault()
     private String dayName(long timestamp) {
         SimpleDateFormat day = new SimpleDateFormat("EEEE", Locale.getDefault());
         return day.format(new Date(timestamp));

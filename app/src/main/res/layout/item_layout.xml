@@ -7,6 +7,9 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp">
+    <!--        TODO always use snake casing-->
+    <!--        TODO proper naming of ids-->
+    <!--TODO use dimens file for all the margins and padding-->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView2"
