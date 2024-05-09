@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         temperatureTextView = view.findViewById(R.id.temp);
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         frame=view.findViewById(R.id.frame);
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
-      //  fetchWeatherData(currentCityName);
+
 
     weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
         if(query!=null){

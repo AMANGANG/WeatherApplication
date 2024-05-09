@@ -9,8 +9,8 @@ import java.util.List;
 
 public class WeatherViewModel extends ViewModel {
 
-    private List<String> recentSearches = new ArrayList<>();
     private final MutableLiveData<String> searchQuery = new MutableLiveData<>();
+    private final List<String> recentSearches = new ArrayList<>();
 
     public LiveData<String> getSearchQuery() {
         return searchQuery;
@@ -19,6 +19,7 @@ public class WeatherViewModel extends ViewModel {
     public void setSearchQuery(String query) {
         searchQuery.setValue(query);
     }
+
     public void addSearchQuery(String query) {
         recentSearches.add(query);
         setSearchQuery(query);
