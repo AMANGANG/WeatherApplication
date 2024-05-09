@@ -36,7 +36,7 @@ public class SearchFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView2);
         button = view.findViewById(R.id.button2);
 
-        String[] cities = {"london", "delhi", "sydney", "bareilly", "lucknow"};
+        String[] cities = weatherViewModel.getRecentSearches().toArray(new String[0]);
 
         ArrayAdapter<String> city = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, cities);
         searchView.setAdapter(city);
@@ -49,6 +49,7 @@ public class SearchFragment extends Fragment {
                 String cityName = searchView.getText().toString();
                 if (cityName != null ) {
                     weatherViewModel.setSearchQuery(cityName);
+                    weatherViewModel.addSearchQuery(cityName);
                     loadfrag(new HomeFragment());
 
                 }
@@ -60,6 +61,7 @@ public class SearchFragment extends Fragment {
             String cityName = (String) parent.getItemAtPosition(position);
           if (cityName != null ) {
             weatherViewModel.setSearchQuery(cityName);
+              weatherViewModel.addSearchQuery(cityName);
             loadfrag(new HomeFragment());
              }
          }
