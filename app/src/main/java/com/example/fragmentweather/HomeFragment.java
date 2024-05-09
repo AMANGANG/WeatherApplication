@@ -44,6 +44,8 @@ public class HomeFragment extends Fragment {
 
     private String currentCityName = "jaipur";
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,21 +61,20 @@ public class HomeFragment extends Fragment {
         cityNameTextView = view.findViewById(R.id.textView);
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
         frame=view.findViewById(R.id.frame);
-        weatherViewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
+        weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
+
+      //  fetchWeatherData(currentCityName);
 
     weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
         if(query!=null){
             currentCityName=query;
+            fetchWeatherData(currentCityName);
+            Log.d("Msg", "onCreateView: "+query);
+        }else{
+        Log.d("Msg","Queery is null ");
         }
     });
-
-
-        fetchWeatherData(currentCityName);
-
-
-
-
-        return view;
+      return view;
     }
 
     private void fetchWeatherData(String cityName) {

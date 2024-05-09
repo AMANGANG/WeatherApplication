@@ -29,7 +29,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
@@ -46,7 +46,7 @@ public class SearchFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String cityName = searchView.getText().toString(); // Get the query from the search view
+                String cityName = searchView.getText().toString();
                 if (cityName != null ) {
                     weatherViewModel.setSearchQuery(cityName);
                     loadfrag(new HomeFragment());
@@ -64,11 +64,7 @@ public class SearchFragment extends Fragment {
              }
          }
          });
-
-
-
-
-        return view;
+         return view;
     }
 
     private void loadfrag(HomeFragment homeFragment) {

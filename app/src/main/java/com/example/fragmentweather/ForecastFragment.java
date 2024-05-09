@@ -39,15 +39,18 @@ public class ForecastFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycleview1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+      //  loadWeatherData(cityName);
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
-        weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
-            if(query!=null){
-                cityName=query;
-            }
-        });
 
-        loadWeatherData(cityName);
+               weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
+                   if(query!=null){
+                       cityName=query;
+                       loadWeatherData(cityName);
+                   }
+               });
+
+
 
         return view;
     }
