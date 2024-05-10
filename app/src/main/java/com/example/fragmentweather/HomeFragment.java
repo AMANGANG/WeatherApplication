@@ -19,8 +19,6 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
@@ -39,12 +37,13 @@ public class HomeFragment extends Fragment {
 
     private WeatherViewModel weatherViewModel;
 
-    private String currentCityName = "jaipur";
+    private final String currentCityName = "jaipur";
+
+    private WeatherRepository weatherRepository;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -57,14 +56,16 @@ public class HomeFragment extends Fragment {
         cityNameTextView = view.findViewById(R.id.textView);
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
         frame = view.findViewById(R.id.frame);
+
+        weatherRepository = new WeatherRepository();
+
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
 
 ////TODO no need for this, you could have just passed the query string
         weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(), query -> {
             if (query != null) {
-                currentCityName = query;
-                fetchWeatherData(currentCityName);
+                fetchWeatherData(query);
                 Log.d("Msg", "onCreateView: " + query);
             } else {
                 Log.d("Msg", "Queery is null ");
@@ -74,15 +75,10 @@ public class HomeFragment extends Fragment {
     }
 
     ////TODO this is part of repository. This should be encapsulated from the view
+    // i have sifted that part in the repository class
     private void fetchWeatherData(String cityName) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.openweathermap.org/data/2.5/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        WeatherApiService service = retrofit.create(WeatherApiService.class);
-        Call<WeatherData> call = service.getWeatherData(cityName, "d38f4657f7041c386dd0e17c4eaebf1a", "metric");
+        Call<WeatherData> call = weatherRepository.getWeatherData(cityName);
 
         call.enqueue(new Callback<WeatherData>() {
             @Override

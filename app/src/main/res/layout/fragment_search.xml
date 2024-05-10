@@ -14,8 +14,6 @@
        android:background="@drawable/cloud_background"
        tools:context=".SearchFragment">
 
-
-
        <!--        TODO always use snake casing-->
        <!--        TODO proper naming of ids-->
        <!--TODO use dimens file for all the margins and padding-->

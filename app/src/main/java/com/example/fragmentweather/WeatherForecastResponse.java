@@ -72,7 +72,7 @@ public class WeatherForecastResponse {
     public static class Weather {
      /*
         ////TODO what do you understand by @SerializedName
-        @SeraializationName annotation is used to indicate  that
+        @SeraializedName annotation is used to indicate  that
         mapping happens  correctly to assign  the JSON object into the Java object.
 
       */

@@ -17,7 +17,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         ////TODO please explain this
+        EdgeToEdge basically allows  app to use the whole screen of the phone
+        setContentView(R.layout.activity_main);
+        This line basically tells our app what to show on the screen when this part of the app is running.
+        */
+
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 

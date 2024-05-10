@@ -25,7 +25,13 @@ import java.util.List;
             this.forecasts = forecasts;
         }
 
-        @Override
+        public void updateData(List<WeatherForecastResponse.Forecast> newdata) {
+            this.forecasts.addAll(newdata);
+            notifyDataSetChanged();
+
+        }
+
+            @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             /*
             //// TODO what do you understand by parent?
@@ -96,6 +102,8 @@ import java.util.List;
         public int getItemCount() {
             return forecasts.size();
         }
+
+
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 

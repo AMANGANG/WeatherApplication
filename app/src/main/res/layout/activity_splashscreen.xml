@@ -31,15 +31,17 @@
 <!--    TODO always use dimens file for sizes-->
 <!--  TODO try not to use match_parent with constraint layout-->
     <TextView
+        android:id="@+id/splashscreen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/splashscreen"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:id="@+id/splashscreen"
         android:textSize="@dimen/splash_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

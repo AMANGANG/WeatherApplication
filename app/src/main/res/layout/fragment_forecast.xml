@@ -10,16 +10,12 @@
    <!--i tried to use the card view to improve the ui but it was not being
     used instead i should have tried implementing in hte item_layout file.
     -->
-
-        <!--TODO WHY is your RecyclerView inside CardView?-->
-        <!--TODO Proper naming of the recyclerview-->
-
-        <androidx.recyclerview.widget.RecyclerView
+    <!--TODO WHY is your RecyclerView inside CardView?-->
+    <!--TODO Proper naming of the recyclerview-->
+     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
         <!--TODO remove blank space-->
-
-
 </FrameLayout>
