@@ -17,6 +17,7 @@ public class WeatherData {
     private String name;
     private int cod;
 
+    ////TODO why is this class static?
     public static class Coord {
         private double lon;
         private double lat;
@@ -30,6 +31,7 @@ public class WeatherData {
         }
     }
 
+    ////TODO why is this class static?
     public static class Weather {
         private int id;
         private String main;
@@ -53,6 +55,7 @@ public class WeatherData {
         }
     }
 
+    ////TODO why is this class static?
     public static class Main {
         private double temp;
         private double feels_like;
@@ -86,6 +89,7 @@ public class WeatherData {
         }
     }
 
+    ////TODO why is this class static?
     public static class Wind {
         private double speed;
         private int deg;
@@ -99,6 +103,7 @@ public class WeatherData {
         }
     }
 
+    ////TODO why is this class static?
     public static class Clouds {
         private int all;
 
@@ -107,6 +112,7 @@ public class WeatherData {
         }
     }
 
+    ////TODO why is this class static?
     public static class Sys {
         private int type;
         private int id;

@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-
+////TODO please indent your code
 public class SearchFragment extends Fragment {
 
     private AutoCompleteTextView searchView;
@@ -27,13 +27,17 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
+        ////TODO please explain why you have used: requireActivity()
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
         searchView = view.findViewById(R.id.searchView2);
         button = view.findViewById(R.id.button2);
 
+        ////TODO please explain what is: new String[0]
         String[] cities = weatherViewModel.getRecentSearches().toArray(new String[0]);
 
+        ////TODO please explain why you have used ArrayAdapter?
+        ////TODO this is list of cities not city
         ArrayAdapter<String> city = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, cities);
         searchView.setAdapter(city);
 
@@ -44,8 +48,11 @@ public class SearchFragment extends Fragment {
             public void onClick(View v) {
                 String cityName = searchView.getText().toString();
                 if (cityName != null ) {
+                    ////TODO please explain why you have called both setSearchQuery & addSearchQuery
                     weatherViewModel.setSearchQuery(cityName);
                     weatherViewModel.addSearchQuery(cityName);
+                    ////TODO why are you calling home frament here? you could have passed the data to the first tab
+                    //// TODO do it using the ViewModel
                     loadfrag(new HomeFragment());
 
                 }
@@ -69,6 +76,7 @@ public class SearchFragment extends Fragment {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.container,homeFragment);
+        //// TODO please explain what is addToBackStack
         ft.addToBackStack(null);
 
         ft.commit();

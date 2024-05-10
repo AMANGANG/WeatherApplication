@@ -8,7 +8,7 @@
     android:background="@drawable/sunny_background"
     android:id="@+id/frame"
     tools:context=".HomeFragment">
-
+<!--TODO why are you setting the context in a child view? why is it referring to MainActivity?-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -16,6 +16,8 @@
 
         tools:context=".MainActivity">
 
+        <!--TODO drawableLeft is deprecated-->
+        <!--TODO use dimens file for all the margins and padding-->
 
         <TextView
             android:id="@+id/textView"
@@ -29,6 +31,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--TODO use dimens file for all the margins and padding-->
+<!--        TODO always use snake casing-->
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="150dp"
@@ -40,6 +44,8 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/sun" />
 
+        <!--TODO use dimens file for all the margins and padding-->
+<!--        TODO proper naming of ids-->
         <TextView
             android:id="@+id/upday"
             android:layout_width="wrap_content"
@@ -52,6 +58,8 @@
             app:layout_constraintHorizontal_bias="0.635"
             app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
             app:layout_constraintTop_toTopOf="parent"  />
+        <!--        TODO no hardcoded strings in layouts-->
+        <!--        TODO when referring a view don't use @+id-->
 
         <TextView
             android:id="@+id/temp"

@@ -8,7 +8,9 @@
     android:layout_gravity="center"
     android:background="@drawable/colud_background"
     >
-
+<!--    TODO incorrect drawable spelling-->
+<!--TODO why is your constraintlayout inside framelayout-->
+    <!--TODO remove blank space-->
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -17,6 +19,9 @@
 
        >
 
+       <!--        TODO always use snake casing-->
+       <!--        TODO proper naming of ids-->
+       <!--TODO use dimens file for all the margins and padding-->
 
        <AutoCompleteTextView
            android:id="@+id/searchView2"

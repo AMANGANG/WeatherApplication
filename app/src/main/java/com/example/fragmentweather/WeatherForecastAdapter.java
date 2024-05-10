@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.List;
-
+//TODO remove spacing
+//// TODO fix indentation
 
     public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.ViewHolder> {
-
+// TODO why is this not final? please explain why should we make it final?
         private List<WeatherForecastResponse.Forecast> forecasts;
 
         public WeatherForecastAdapter(List<WeatherForecastResponse.Forecast> forecasts) {
@@ -22,6 +23,8 @@ import java.util.List;
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            //// TODO what do you understand by parent?
+            //// TODO what do you understand by attachToRoot false?
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
             return new ViewHolder(view);
         }
@@ -38,6 +41,7 @@ import java.util.List;
 
         private void changeImagesAccordibdtocondition(LottieAnimationView lottieAnimationView, String condition) {
             switch (condition) {
+                //// TODO never use magic literals
                 case "Clear Sky":
                 case "Sunny":
                 case "Clear":
