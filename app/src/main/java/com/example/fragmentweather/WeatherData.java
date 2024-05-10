@@ -16,8 +16,13 @@ public class WeatherData {
     private int id;
     private String name;
     private int cod;
-
+     /*
     ////TODO why is this class static?
+    static is used to create an instance of the nested class
+    without first creating an instance of the outer class.
+    So in  my case i  can create instances of Coord, Weather, Main, Wind etc.
+    these classes independently of WeatherData.
+      */
     public static class Coord {
         private double lon;
         private double lat;

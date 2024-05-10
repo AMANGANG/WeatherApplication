@@ -42,8 +42,8 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     //TODO some of the dependencies are using a versions.toml file and another one is directly imported
     // Please fix this
-    implementation("com.airbnb.android:lottie:6.4.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation(libs.lottie)
+    implementation(libs.gsonConverter)
+    implementation (libs.retrofit)
 
 }

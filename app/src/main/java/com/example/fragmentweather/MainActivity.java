@@ -47,17 +47,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadfrag(Fragment fragment, Boolean flag) {
-        ////TODO please explain what is getSupportFragmentManager()
+        /*
+        //TODO please explain what is getSupportFragmentManager()
+         So getSupportFragmentManager() basically just  returns an instance of FragmentManager and
+         fragmentManager  manages Fragment instances and
+         provides methods to interact with them.
+        */
         FragmentManager fm = getSupportFragmentManager();
+        /*
         ////TODO please explain what is beginTransaction()
+        It creates and returns a new instance of FragmentTransaction.
+        FragmentTransaction helps to perform actions on fragments,
+        like adding, removing.
+        */
+
         FragmentTransaction ft = fm.beginTransaction();
+        /*
         ////TODO please explain diff b/w add and replace
+         Add->  It add the fragment and if fragment is already present it the new fragment
+        on top of it
+         Replace-> It replaces the new fragment with existing fragment but if there are no
+         fragment it works same like add.
+         */
         if (flag) {
             ft.add(R.id.container, fragment);
         } else {
             ft.replace(R.id.container, fragment);
         }
         ////TODO please explain this
+        // It basically used to execute all the changes made in the  transaction now.
         ft.commit();
     }
 

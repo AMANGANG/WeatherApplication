@@ -14,7 +14,11 @@ import java.util.List;
 //// TODO fix indentation
 
     public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.ViewHolder> {
-// TODO why is this not final? please explain why should we make it final?
+        /*
+        // TODO why is this not final? please explain why should we make it final?
+          I didn't think at that time to make it final i think we should do it
+          ensures that once it's value is  set, it cannot be changed in a different list
+         */
         private List<WeatherForecastResponse.Forecast> forecasts;
 
         public WeatherForecastAdapter(List<WeatherForecastResponse.Forecast> forecasts) {
@@ -23,8 +27,16 @@ import java.util.List;
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            /*
             //// TODO what do you understand by parent?
             //// TODO what do you understand by attachToRoot false?
+            The parent parameter is basically used to provide the context for display like
+            in my case recyclerview.
+            AttachToRoot false means that  the view that we want to display will  not be immediately attached to the parent view group.
+            in case we want to make some changes in it.
+
+
+             */
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
             return new ViewHolder(view);
         }

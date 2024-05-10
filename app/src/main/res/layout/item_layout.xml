@@ -13,8 +13,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/animation_width"
+        android:layout_height="@dimen/animation_height"
          app:lottie_autoPlay="true"
         app:lottie_loop="true"
         android:src="@drawable/sunny"
@@ -27,24 +27,23 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:text="Monday"
-        android:textSize="16sp"
+        android:layout_marginTop="@dimen/marign_top_inbwt"
+        android:text="@string/today_text"
+        android:textSize="@dimen/splash_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/lottieAnimationView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTemperature" />
+        app:layout_constraintStart_toEndOf="@id/lottieAnimationView2"
+        app:layout_constraintTop_toBottomOf="@id/textViewTemperature" />
 
     <TextView
         android:id="@+id/textViewTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20°C / 10°C"
-        android:textSize="16sp"
+        android:text="@string/temperature"
+        android:textSize="@dimen/splash_text_size"
         app:layout_constraintBottom_toTopOf="@id/textViewDate"
-        app:layout_constraintEnd_toEndOf="@+id/textViewDate"
-        app:layout_constraintStart_toStartOf="@+id/textViewDate"
+        app:layout_constraintEnd_toEndOf="@id/textViewDate"
+        app:layout_constraintStart_toStartOf="@id/textViewDate"
         app:layout_constraintTop_toBottomOf="@id/textViewWeatherDescription"
         tools:layout_editor_absoluteY="66dp" />
 
@@ -52,13 +51,12 @@
         android:id="@+id/textViewWeatherDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="36dp"
-        android:text="Partly Cloudy"
-        android:textSize="16sp"
+        android:layout_marginTop="@dimen/marign_top_inbwt"
+        android:layout_marginBottom="@dimen/marign_bottom"
+        android:text="@string/weather_text"
+        android:textSize="@dimen/splash_text_size"
         app:layout_constraintBottom_toTopOf="@+id/textViewTemperature"
         app:layout_constraintEnd_toEndOf="@+id/textViewTemperature"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textViewTemperature"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,14 @@
-
 package com.example.fragmentweather;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -45,7 +42,6 @@ public class HomeFragment extends Fragment {
     private String currentCityName = "jaipur";
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,28 +49,28 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         temperatureTextView = view.findViewById(R.id.temp);
-        maxTempTextView = view.findViewById(R.id.maxtemp);
-        minTempTextView = view.findViewById(R.id.mintemp);
-        weatherDescriptionTextView = view.findViewById(R.id.typeofweather);
+        maxTempTextView = view.findViewById(R.id.maxTemp);
+        minTempTextView = view.findViewById(R.id.minTemp);
+        weatherDescriptionTextView = view.findViewById(R.id.typeOfWeather);
         dayTextView = view.findViewById(R.id.day);
         dateTextView = view.findViewById(R.id.date);
         cityNameTextView = view.findViewById(R.id.textView);
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
-        frame=view.findViewById(R.id.frame);
+        frame = view.findViewById(R.id.frame);
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
 
 
 ////TODO no need for this, you could have just passed the query string
-    weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(),query->{
-        if(query!=null){
-            currentCityName=query;
-            fetchWeatherData(currentCityName);
-            Log.d("Msg", "onCreateView: "+query);
-        }else{
-        Log.d("Msg","Queery is null ");
-        }
-    });
-      return view;
+        weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(), query -> {
+            if (query != null) {
+                currentCityName = query;
+                fetchWeatherData(currentCityName);
+                Log.d("Msg", "onCreateView: " + query);
+            } else {
+                Log.d("Msg", "Queery is null ");
+            }
+        });
+        return view;
     }
 
     ////TODO this is part of repository. This should be encapsulated from the view
@@ -85,7 +81,7 @@ public class HomeFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        WeatherApiservice service = retrofit.create(WeatherApiservice.class);
+        WeatherApiService service = retrofit.create(WeatherApiService.class);
         Call<WeatherData> call = service.getWeatherData(cityName, "d38f4657f7041c386dd0e17c4eaebf1a", "metric");
 
         call.enqueue(new Callback<WeatherData>() {
@@ -99,16 +95,23 @@ public class HomeFragment extends Fragment {
                         double minTemp = weatherApp.getMain().getTemp_min();
                         String condition = weatherApp.getWeather().get(0).getDescription();
 
-                        temperatureTextView.setText(temperature + " °C");
+                        String temperatureText = String.format(getString(R.string.temp), temperature);
+                        temperatureTextView.setText(temperatureText);
+
+
                         //// TODO use strings.xml
-                        maxTempTextView.setText("Max Temp: " + maxTemp + " °C");
+                        String maxTempText = String.format(getString(R.string.max_temp), maxTemp);
+                        maxTempTextView.setText(maxTempText);
+
                         //// TODO use strings.xml
-                        minTempTextView.setText("Min Temp: " + minTemp + " °C");
+                        String minTempText = String.format(getString(R.string.min_temp), minTemp);
+                        minTempTextView.setText(minTempText);
+
                         weatherDescriptionTextView.setText(condition);
                         //// TODO instead of dayName function should be to get today's day
-                        dayTextView.setText(dayName(System.currentTimeMillis()));
+                        dayTextView.setText(getCurrentDayName(System.currentTimeMillis()));
                         //// TODO bad function naming
-                        dateTextView.setText(date());
+                        dateTextView.setText(getCurrentDate());
                         cityNameTextView.setText(cityName);
                         changeImagesAccordibdtocondition(condition);
                         Log.d("TAG", "Temperature: " + temperature + " °C");
@@ -143,7 +146,7 @@ public class HomeFragment extends Fragment {
             case "broken clouds":
             case "Foggy":
             case "scattered clouds":
-                frame.setBackgroundResource(R.drawable.colud_background);
+                frame.setBackgroundResource(R.drawable.cloud_background);
                 lottieAnimationView.setAnimation(R.raw.cloud);
                 break;
             case "light rain":
@@ -170,13 +173,15 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private String date() {
+    private String getCurrentDate() {
         SimpleDateFormat date = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
         return date.format(new Date());
     }
 
-   //// TODO please explain date format EEEE, what is Locale.getDefault()
-    private String dayName(long timestamp) {
+    //// TODO please explain date format EEEE, what is Locale.getDefault()
+    //EEEE is basically used to display full name of the day of the week and  Locale.getDefault()
+    // is method that returns the language set in your computer like English or german etc.
+    private String getCurrentDayName(long timestamp) {
         SimpleDateFormat day = new SimpleDateFormat("EEEE", Locale.getDefault());
         return day.format(new Date(timestamp));
     }

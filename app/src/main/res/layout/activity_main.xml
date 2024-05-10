@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--TODO ALWAYS indent your code-->
+<?xml version="1.0" encoding="utf-8"?><!--TODO ALWAYS indent your code-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,30 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-  <!--  TODO try not to use match_parent with constraint layout-->
-  <!-- TODO Why have you added margin top 20 here?-->
-<!--  TODO left to left of and right to right of are deprecated-->
-  <FrameLayout
-      android:id="@+id/container"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toTopOf="@id/btnnav"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      android:layout_marginTop="20dp"
-      />
+    <!--  TODO try not to use match_parent with constraint layout-->
+    <!-- TODO Why have you added margin top 20 here?-->
+    <!-- i wanted to add it because my top was colliding with the camera of the
+       phone that why i thought off giving it top margin -->
+    <!--  TODO left to left of and right to right of are deprecated-->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/btnnav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-<!--  TODO try not to use match_parent with constraint layout-->
-  <!--  TODO left to left of and right to right of are deprecated-->
-  <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/btnnav"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:menu="@menu/nav_items" />
+    <!--  TODO try not to use match_parent with constraint layout-->
+    <!--  TODO left to left of and right to right of are deprecated-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btnnav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/nav_items" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

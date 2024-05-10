@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_text_size">20sp</dimen>
+    <dimen name="margin_top">50dp</dimen>
+    <dimen name="marign_bottom">36dp</dimen>
+    <dimen name="margin_top_very_small">8dp</dimen>
+    <dimen name="margin_top_small">20dp</dimen>
+    <dimen name="margin_top_medium">30dp</dimen>
+    <dimen name="marign_top_inbwt">40dp</dimen>
+    <dimen name="margin_top_large">52dp</dimen>
+    <dimen name="drawable_padding">15dp</dimen>
+    <dimen name="animation_view_width">150dp</dimen>
+    <dimen name="animation_view_height">150dp</dimen>
+    <dimen name="animation_width">100dp</dimen>
+    <dimen name="animation_height">100dp</dimen>
+</resources>

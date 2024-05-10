@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,23 +7,19 @@
 
     <!--TODO WHY is your cardview inside a FrameLayout?-->
     <!--TODO Always give ids to all your views-->
+   <!--i tried to use the card view to improve the ui but it was not being
+    used instead i should have tried implementing in hte item_layout file.
+    -->
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <!--TODO WHY is your RecyclerView inside CardView?-->
         <!--TODO Proper naming of the recyclerview-->
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recycleview1"
-
             />
-<!--TODO remove blank space-->
+        <!--TODO remove blank space-->
 
-
-
-    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

@@ -9,12 +9,13 @@
     android:id="@+id/frame"
     tools:context=".HomeFragment">
 <!--TODO why are you setting the context in a child view? why is it referring to MainActivity?-->
+    <!-- It was wrong on my side there was no need to pass context in the constraint Layout
+    as i am already referring to the Home Fragment
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
         <!--TODO drawableLeft is deprecated-->
         <!--TODO use dimens file for all the margins and padding-->
@@ -23,9 +24,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:drawableLeft="@drawable/loctaion"
-            android:drawablePadding="15dp"
+            android:layout_marginTop="@dimen/margin_top"
+            android:drawableStart="@drawable/loctaion"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +36,9 @@
 <!--        TODO always use snake casing-->
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="@dimen/animation_view_width"
+            android:layout_height="@dimen/animation_view_height"
+            android:layout_marginTop="@dimen/margin_top_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"
             app:lottie_autoPlay="true"
@@ -47,16 +48,16 @@
         <!--TODO use dimens file for all the margins and padding-->
 <!--        TODO proper naming of ids-->
         <TextView
-            android:id="@+id/upday"
+            android:id="@+id/upDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:text="Today"
+            android:layout_marginTop="@dimen/margin_top_large"
+            android:text="@string/today_text"
             android:textStyle="bold"
-            android:textSize="30dp"
+            android:textSize="@dimen/splash_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.635"
-            app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
+            app:layout_constraintStart_toEndOf="@id/lottieAnimationView"
             app:layout_constraintTop_toTopOf="parent"  />
         <!--        TODO no hardcoded strings in layouts-->
         <!--        TODO when referring a view don't use @+id-->
@@ -65,65 +66,63 @@
             android:id="@+id/temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00:00 *C"
+            android:text="@string/temp_text"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/upday"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/upday"
-            app:layout_constraintTop_toBottomOf="@id/upday"
+            app:layout_constraintEnd_toEndOf="@id/upDay"
+            app:layout_constraintStart_toStartOf="@id/upDay"
+            app:layout_constraintTop_toBottomOf="@id/upDay"
             app:layout_constraintVertical_bias="0.03" />
 
         <TextView
-            android:id="@+id/typeofweather"
+            android:id="@+id/typeOfWeather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="SUNNY"
-            app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
+            android:layout_marginTop="@dimen/margin_top_very_small"
+            android:text="@string/weather_text"
+            app:layout_constraintEnd_toEndOf="@id/lottieAnimationView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
+            app:layout_constraintTop_toBottomOf="@id/lottieAnimationView" />
 
         <TextView
-            android:id="@+id/maxtemp"
+            android:id="@+id/maxTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MAX:00:00 *C"
+            android:text="@string/max_temp_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeofweather" />
+            app:layout_constraintTop_toBottomOf="@id/typeOfWeather" />
 
         <TextView
-            android:id="@+id/mintemp"
+            android:id="@+id/minTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="MIN:00:00 *C"
+            android:layout_marginTop="@dimen/margin_top_very_small"
+            android:text="@string/min_temp_text"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/maxtemp"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/maxtemp"
-            app:layout_constraintTop_toBottomOf="@+id/maxtemp"
+            app:layout_constraintEnd_toEndOf="@id/maxTemp"
+            app:layout_constraintStart_toStartOf="@id/maxTemp"
+            app:layout_constraintTop_toBottomOf="@id/maxTemp"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="TUESDAY"
-            app:layout_constraintEnd_toEndOf="@+id/mintemp"
-            app:layout_constraintStart_toStartOf="@+id/mintemp"
-            app:layout_constraintTop_toBottomOf="@+id/mintemp" />
+            android:layout_marginTop="@dimen/margin_top_medium"
+            android:text="@string/day_text"
+            app:layout_constraintEnd_toEndOf="@id/minTemp"
+            app:layout_constraintStart_toStartOf="@id/minTemp"
+            app:layout_constraintTop_toBottomOf="@id/minTemp" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="02 May 2024"
+            android:layout_marginTop="@dimen/margin_top_small"
+            android:text="@string/date_text"
             app:layout_constraintEnd_toEndOf="@id/day"
-            app:layout_constraintStart_toStartOf="@+id/day"
-            app:layout_constraintTop_toBottomOf="@+id/day" />
+            app:layout_constraintStart_toStartOf="@id/day"
+            app:layout_constraintTop_toBottomOf="@id/day" />
 
 
 

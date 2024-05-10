@@ -18,8 +18,13 @@ public class WeatherForecastResponse {
     public List<Forecast> getList() {
         return list;
     }
-
+     /*
 //    TODO What is the reason of creating this class static?
+     static is used to create an instance of the nested class
+    without first creating an instance of the outer class.
+    So in  my case i  can create instances of City, Forecast, Main, Weather etc.
+    these classes independently of WeatherData.
+      */
     public static class City {
         @SerializedName("name")
         private String name;
@@ -65,7 +70,12 @@ public class WeatherForecastResponse {
 
     //    TODO What is the reason of creating this class static?
     public static class Weather {
+     /*
         ////TODO what do you understand by @SerializedName
+        @SeraializationName annotation is used to indicate  that
+        mapping happens  correctly to assign  the JSON object into the Java object.
+
+      */
         @SerializedName("main")
         private String main;
 
