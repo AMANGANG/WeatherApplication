@@ -11,6 +11,8 @@
     <!--        TODO proper naming of ids-->
     <!--TODO use dimens file for all the margins and padding-->
 
+
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView2"
         android:layout_width="@dimen/animation_width"
@@ -35,19 +37,19 @@
         app:layout_constraintStart_toEndOf="@id/lottieAnimationView2"
         app:layout_constraintTop_toBottomOf="@id/textViewTemperature" />
 
-    <TextView
-        android:id="@+id/textViewTemperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temperature"
-        android:textSize="@dimen/splash_text_size"
-        app:layout_constraintBottom_toTopOf="@id/textViewDate"
-        app:layout_constraintEnd_toEndOf="@id/textViewDate"
-        app:layout_constraintStart_toStartOf="@id/textViewDate"
-        app:layout_constraintTop_toBottomOf="@id/textViewWeatherDescription"
-        tools:layout_editor_absoluteY="66dp" />
+        <TextView
+            android:id="@+id/textViewTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature"
+            android:textSize="@dimen/splash_text_size"
+            app:layout_constraintBottom_toTopOf="@id/textViewDate"
+            app:layout_constraintEnd_toEndOf="@id/textViewDate"
+            app:layout_constraintStart_toStartOf="@id/textViewDate"
+            app:layout_constraintTop_toBottomOf="@id/textViewWeatherDescription"
+            tools:layout_editor_absoluteY="66dp" />
 
-    <TextView
+        <TextView
         android:id="@+id/textViewWeatherDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,8 +57,10 @@
         android:layout_marginBottom="@dimen/marign_bottom"
         android:text="@string/weather_text"
         android:textSize="@dimen/splash_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTemperature"
-        app:layout_constraintEnd_toEndOf="@+id/textViewTemperature"
-        app:layout_constraintStart_toStartOf="@+id/textViewTemperature"
+        app:layout_constraintBottom_toTopOf="@id/textViewTemperature"
+        app:layout_constraintEnd_toEndOf="@id/textViewTemperature"
+        app:layout_constraintStart_toStartOf="@id/textViewTemperature"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

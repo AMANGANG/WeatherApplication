@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,16 +33,13 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.btnnav);
 
         ////TODO please don't use deprecated code
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
                 int id = menuItem.getItemId();
 
                 if (id == R.id.home) {
                     loadfrag(new HomeFragment(), true);
-
-
                 } else if (id == R.id.forecast) {
                     loadfrag(new ForecastFragment(), false);
                 } else {
