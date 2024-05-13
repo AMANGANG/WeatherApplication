@@ -16,12 +16,13 @@ public class WeatherViewModel extends ViewModel {
      */
     private final MutableLiveData<String> searchQuery = new MutableLiveData<>();
     private final List<String> recentSearches = new ArrayList<>();
-   /*
-    //// TODO why are you returning LiveData and not MutableLiveData
-    LiveData only has methods for observing changes, not for modifying the data
-    unlike that in MutableLiveData.
 
-    */
+    /*
+     //// TODO why are you returning LiveData and not MutableLiveData
+     LiveData only has methods for observing changes, not for modifying the data
+     unlike that in MutableLiveData.
+
+     */
     public LiveData<String> getSearchQuery() {
         return searchQuery;
     }
@@ -34,13 +35,14 @@ public class WeatherViewModel extends ViewModel {
         recentSearches.add(query);
         setSearchQuery(query);
     }
-       /*
-      // TODO why have you used a list? Why not an arraylist?
-      List allow you to create more flexible code meaning that
-      the variable can hold any object that implements the List,
+
+    /*
+   // TODO why have you used a list? Why not an arraylist?
+   List allow you to create more flexible code meaning that
+   the variable can hold any object that implements the List,
 
 
-        */
+     */
     public List<String> getRecentSearches() {
         return recentSearches;
     }

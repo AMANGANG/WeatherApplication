@@ -1,7 +1,6 @@
 package com.example.fragmentweather;
 
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -56,12 +56,11 @@ public class SearchFragment extends Fragment {
         searchView.setAdapter(Cities);
 
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String cityName = searchView.getText().toString();
-                if (cityName != null ) {
+                if (cityName != null) {
                     /*
                     ////TODO please explain why you have called both setSearchQuery & addSearchQuery
                     I have setSearchQuery because i want to send the cityName to other fragments and
@@ -82,31 +81,29 @@ public class SearchFragment extends Fragment {
                 }
             }
         });
-         searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        searchView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            String cityName = (String) parent.getItemAtPosition(position);
-          if (cityName != null ) {
-            weatherViewModel.setSearchQuery(cityName);
-              weatherViewModel.addSearchQuery(cityName);
-            loadfrag(new HomeFragment());
-             }
-         }
-         });
-         return view;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String cityName = (String) parent.getItemAtPosition(position);
+                if (cityName != null) {
+                    weatherViewModel.setSearchQuery(cityName);
+                    weatherViewModel.addSearchQuery(cityName);
+                    loadfrag(new HomeFragment());
+                }
+            }
+        });
+        return view;
     }
 
     private void loadfrag(HomeFragment homeFragment) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.container,homeFragment);
+        ft.replace(R.id.container, homeFragment);
         /*
         //// TODO please explain what is addToBackStack
          So when you replace a fragment and call addToBackStack(null), the current fragment
          will be stopped and will be added to the back stack. If the user navigates back,
          the previous fragment state will be restored.
-
-
          */
         ft.addToBackStack(null);
 

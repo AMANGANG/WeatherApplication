@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--TODO inconsistent naming of splashscreen and main-->
+<?xml version="1.0" encoding="utf-8"?><!--TODO inconsistent naming of splashscreen and main-->
 <!--TODO Please explain tools:context-->
-  <!--  context attribute is used  to link the layout to its corresponding Activity-->
+<!--  context attribute is used  to link the layout to its corresponding Activity-->
 <!--TODO ALWAYS INDENT YOUR CODE-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,7 +11,7 @@
     android:background="@drawable/splash_screen"
     tools:context=".SplashActivity">
 
-<!-- TODO Please explain(why have your used it?) layout_constraintHorizontal_bias and layout_constraintVertical_bias-->
+    <!-- TODO Please explain(why have your used it?) layout_constraintHorizontal_bias and layout_constraintVertical_bias-->
     <!-- I used it to adjust the positioning of a Imageview on axis-->
     <ImageView
         android:layout_width="wrap_content"
@@ -25,11 +24,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.918" />
 
-<!--    TODO never use strings directly in your xml files-->
-<!--    TODO never use dp for text sizing-->
-<!--    TODO id naming should be correct-->
-<!--    TODO always use dimens file for sizes-->
-<!--  TODO try not to use match_parent with constraint layout-->
+    <!--    TODO never use strings directly in your xml files-->
+    <!--    TODO never use dp for text sizing-->
+    <!--    TODO id naming should be correct-->
+    <!--    TODO always use dimens file for sizes-->
+    <!--  TODO try not to use match_parent with constraint layout-->
     <TextView
         android:id="@+id/splashscreen"
         android:layout_width="0dp"

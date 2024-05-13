@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sunny_background"
-    android:id="@+id/frame"
     tools:context=".HomeFragment">
-<!--TODO why are you setting the context in a child view? why is it referring to MainActivity?-->
+    <!--TODO why are you setting the context in a child view? why is it referring to MainActivity?-->
     <!-- It was wrong on my side there was no need to pass context in the constraint Layout
     as i am already referring to the Home Fragment
     -->
@@ -33,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <!--TODO use dimens file for all the margins and padding-->
-<!--        TODO always use snake casing-->
+        <!--        TODO always use snake casing-->
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="@dimen/animation_view_width"
@@ -46,19 +45,19 @@
             app:lottie_rawRes="@raw/sun" />
 
         <!--TODO use dimens file for all the margins and padding-->
-<!--        TODO proper naming of ids-->
+        <!--        TODO proper naming of ids-->
         <TextView
             android:id="@+id/upDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_large"
             android:text="@string/today_text"
-            android:textStyle="bold"
             android:textSize="@dimen/splash_text_size"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.635"
             app:layout_constraintStart_toEndOf="@id/lottieAnimationView"
-            app:layout_constraintTop_toTopOf="parent"  />
+            app:layout_constraintTop_toTopOf="parent" />
         <!--        TODO no hardcoded strings in layouts-->
         <!--        TODO when referring a view don't use @+id-->
 
@@ -123,7 +122,6 @@
             app:layout_constraintEnd_toEndOf="@id/day"
             app:layout_constraintStart_toStartOf="@id/day"
             app:layout_constraintTop_toBottomOf="@id/day" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

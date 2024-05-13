@@ -22,6 +22,7 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
+    private final String currentCityName = "jaipur";
     private TextView temperatureTextView;
     private TextView maxTempTextView;
     private TextView minTempTextView;
@@ -29,16 +30,9 @@ public class HomeFragment extends Fragment {
     private TextView dayTextView;
     private TextView dateTextView;
     private TextView cityNameTextView;
-
-
     private View frame;
-
     private LottieAnimationView lottieAnimationView;
-
     private WeatherViewModel weatherViewModel;
-
-    private final String currentCityName = "jaipur";
-
     private WeatherRepository weatherRepository;
 
 

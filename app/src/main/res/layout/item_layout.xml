@@ -12,17 +12,16 @@
     <!--TODO use dimens file for all the margins and padding-->
 
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView2"
         android:layout_width="@dimen/animation_width"
         android:layout_height="@dimen/animation_height"
-         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
         android:src="@drawable/sunny"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
 
 
     <TextView
@@ -37,19 +36,19 @@
         app:layout_constraintStart_toEndOf="@id/lottieAnimationView2"
         app:layout_constraintTop_toBottomOf="@id/textViewTemperature" />
 
-        <TextView
-            android:id="@+id/textViewTemperature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/temperature"
-            android:textSize="@dimen/splash_text_size"
-            app:layout_constraintBottom_toTopOf="@id/textViewDate"
-            app:layout_constraintEnd_toEndOf="@id/textViewDate"
-            app:layout_constraintStart_toStartOf="@id/textViewDate"
-            app:layout_constraintTop_toBottomOf="@id/textViewWeatherDescription"
-            tools:layout_editor_absoluteY="66dp" />
+    <TextView
+        android:id="@+id/textViewTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textSize="@dimen/splash_text_size"
+        app:layout_constraintBottom_toTopOf="@id/textViewDate"
+        app:layout_constraintEnd_toEndOf="@id/textViewDate"
+        app:layout_constraintStart_toStartOf="@id/textViewDate"
+        app:layout_constraintTop_toBottomOf="@id/textViewWeatherDescription"
+        tools:layout_editor_absoluteY="66dp" />
 
-        <TextView
+    <TextView
         android:id="@+id/textViewWeatherDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -29,15 +29,13 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView;
-        bottomNavigationView = findViewById(R.id.btnNav);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.btnNav);
 
         ////TODO please don't use deprecated code
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
-
                 if (id == R.id.home) {
                     loadfrag(new HomeFragment(), true);
                 } else if (id == R.id.forecast) {

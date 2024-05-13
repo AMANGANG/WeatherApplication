@@ -22,11 +22,8 @@ public class SplashActivity extends AppCompatActivity {
         Handler is basically used  to schedule code that should be executed at some point in the future,
         or to enqueue an action which we want to  be performed on a different thread than our own.
         Looper.getMainLooper() returns the application's main thread of the application.
-
-
-
-         */
-         final int SPLASH_SCREEN_DELAY_TIME = 3000;
+        */
+        final int SPLASH_SCREEN_DELAY_TIME = 3000;
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {

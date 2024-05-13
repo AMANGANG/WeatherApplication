@@ -32,8 +32,6 @@ public class ForecastFragment extends Fragment {
     private WeatherRepository weatherRepository;
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +48,6 @@ public class ForecastFragment extends Fragment {
 
         weatherViewModel = new ViewModelProvider(requireActivity()).get(WeatherViewModel.class);
         weatherRepository = new WeatherRepository();
-
 
 
         weatherViewModel.getSearchQuery().observe(getViewLifecycleOwner(), query -> {

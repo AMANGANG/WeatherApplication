@@ -18,13 +18,14 @@ public class WeatherForecastResponse {
     public List<Forecast> getList() {
         return list;
     }
-     /*
+
+    /*
 //    TODO What is the reason of creating this class static?
-     static is used to create an instance of the nested class
+    static is used to create an instance of the nested class
     without first creating an instance of the outer class.
     So in  my case i  can create instances of City, Forecast, Main, Weather etc.
     these classes independently of WeatherData.
-      */
+     */
     public static class City {
         @SerializedName("name")
         private String name;
@@ -33,8 +34,13 @@ public class WeatherForecastResponse {
             return name;
         }
     }
-
+       /*
     //    TODO What is the reason of creating this class static?
+    static is used to create an instance of the nested class
+    without first creating an instance of the outer class.
+    So in  my case i  can create instances of City, Forecast, Main, Weather etc.
+    these classes independently of WeatherData.
+    */
     public static class Forecast {
         @SerializedName("dt_txt")
         private String dateTime;
@@ -57,8 +63,13 @@ public class WeatherForecastResponse {
             return weather;
         }
     }
-
+     /*
     //    TODO What is the reason of creating this class static?
+    static is used to create an instance of the nested class
+    without first creating an instance of the outer class.
+    So in  my case i  can create instances of City, Forecast, Main, Weather etc.
+    these classes independently of WeatherData.
+      */
     public static class Main {
         @SerializedName("temp")
         private float temp;
@@ -67,15 +78,20 @@ public class WeatherForecastResponse {
             return temp;
         }
     }
-
+       /*
     //    TODO What is the reason of creating this class static?
+    static is used to create an instance of the nested class
+    without first creating an instance of the outer class.
+    So in  my case i  can create instances of City, Forecast, Main, Weather etc.
+    these classes independently of WeatherData.
+        */
     public static class Weather {
-     /*
-        ////TODO what do you understand by @SerializedName
-        @SeraializedName annotation is used to indicate  that
-        mapping happens  correctly to assign  the JSON object into the Java object.
+        /*
+           ////TODO what do you understand by @SerializedName
+           @SeraializedName annotation is used to indicate  that
+           mapping happens  correctly to assign  the JSON object into the Java object.
 
-      */
+         */
         @SerializedName("main")
         private String main;
 
