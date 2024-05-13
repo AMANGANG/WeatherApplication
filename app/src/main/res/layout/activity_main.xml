@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@id/btnnav"
+        app:layout_constraintBottom_toTopOf="@id/btnNav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
     <!--  TODO try not to use match_parent with constraint layout-->
     <!--  TODO left to left of and right to right of are deprecated-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/btnnav"
+        android:id="@+id/btnNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

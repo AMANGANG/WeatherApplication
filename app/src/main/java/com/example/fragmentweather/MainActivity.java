@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView;
-        bottomNavigationView = findViewById(R.id.btnnav);
+        bottomNavigationView = findViewById(R.id.btnNav);
 
         ////TODO please don't use deprecated code
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
